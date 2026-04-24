@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_ta3/constants/app_color.dart'; // Pastikan path ini sesuai
+import 'package:get/get.dart';
+import 'package:project_ta3/constants/app_color.dart';
+import 'package:project_ta3/controlles/profile_controller.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({super.key});
 
   @override
@@ -11,110 +13,148 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        title: const Text(
+          'Profile',
+          style: TextStyle(
+            color: AppColors.primary,
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(
               Icons.notifications_none,
-              color: Color(0xFF8B1A1A), // Warna Maroon
+              color: AppColors.primary,
+              size: 28,
             ),
             onPressed: () {},
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Profile',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF8B1A1A),
-              ),
-            ),
-            const SizedBox(height: 30),
-
-            // Bagian Foto dan Nama
+            // Profile Info
             Row(
               children: [
-                const CircleAvatar(
-                  radius: 35,
-                  backgroundColor: Color(0xFFF2F2F2),
-                  child: Icon(Icons.person, size: 45, color: Colors.black54),
+                // Avatar
+                Container(
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: AppColors.primary,
+                    shape: BoxShape.circle,
+                  ),
+                  child: const Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 40,
+                  ),
                 ),
-                const SizedBox(width: 20),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Surya Setiadi',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                const SizedBox(width: 16),
+                // Name & Email
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Obx(
+                        () => Text(
+                          controller.userName.value,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
-                    ),
-                    Text(
-                      'suryasetiadi@gmail.com',
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
+                      const SizedBox(height: 4),
+                      Obx(
+                        () => Text(
+                          controller.userEmail.value,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 32),
 
-            // Tombol Ganti Password
-            Container(
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(
-                color: const Color(0xFFF2F2F2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Row(
-                children: const [
-                  Icon(Icons.lock_outline, color: Color(0xFF8B1A1A)),
-                  SizedBox(width: 15),
-                  Text(
-                    'Ganti Password',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                  ),
-                  Spacer(),
-                  Icon(Icons.arrow_forward_ios, size: 18, color: Colors.grey),
-                ],
+            // Menu: Ganti Password
+            GestureDetector(
+              onTap: () => controller.gantiPassword(),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: const Icon(
+                        Icons.lock_outline,
+                        color: Colors.white,
+                        size: 24,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    const Expanded(
+                      child: Text(
+                        'Ganti Password',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.grey[600],
+                      size: 18,
+                    ),
+                  ],
+                ),
               ),
             ),
 
             const Spacer(),
 
-            // Tombol Logout
+            // Logout Button
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  // Tambahkan logika logout di sini
-                },
+                onPressed: () => controller.logout(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF8B1A1A),
-                  padding: const EdgeInsets.symmetric(vertical: 15),
+                  backgroundColor: AppColors.primary,
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  elevation: 0,
                 ),
                 child: const Text(
                   'Logout',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 40),
           ],
         ),
       ),

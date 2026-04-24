@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // ✅ Perhatikan: class-nya AppColors (plural) atau AppColor?
-  static const Color primary = Color(0xFF8B1E1E);
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color background = Color(0xFFF5F5F5);
-  static const Color blackText = Color(0xFF212121);
-  static const Color greyText = Color(0xFF9E9E9E);
-  static const Color border = Color(0xFF8B1E1E);
-  static const Color success = Colors.green;
-  static const Color error = Colors.red;
-  static const Color warning = Colors.orange;
-  static const Color shadow = Colors.black26;
+  static const primary = Color(0xFF9B2C2C);
+  static const statusReturned = Color(0xFF71717A);
+  static const statusBorrowed = Color(0xFF22C55E);
+  static const statusLate = Color(0xFFEF4444);
+  static const background = Color(0xFFF7F7F8);
+
+  // ✅ PASTIKAN 2 INI ADA:
+  static const success = Color(0xFF22C55E);
+  static const error = Color(0xFFEF4444);
 }
