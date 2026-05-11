@@ -28,6 +28,7 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+<<<<<<< HEAD
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,6 +44,38 @@ class _SplashPageState extends State<SplashPage> {
                 Icons.inventory_2_outlined,
                 size: 80,
                 color: AppColors.primary,
+=======
+      body: Stack(
+        children: [
+          // Bagian Logo & Text (Tengah Layar)
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset('assets/images/image.png', width: 150, height: 150),
+                const SizedBox(height: 16),
+                const Text(
+                  "Login App",
+                  style: TextStyle(
+                    color: Color(0xFF8B1919),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          // Bagian Loading (Bawah Layar)
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              // PERBAIKAN DI SINI: Gunakan .only
+              padding: const EdgeInsets.only(bottom: 50),
+              child: CircularProgressIndicator(
+                color: AppColor.primary,
+                strokeWidth: 3,
+>>>>>>> 4c62efb (membetulkan ui)
               ),
             ),
             const SizedBox(height: 24),

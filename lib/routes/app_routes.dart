@@ -9,4 +9,6 @@ class AppRoutes {
   static const barang = '/barang';
   static const cardproduct = '/cardproduct';
   static const detailKerusakan = '/detail-kerusakan';
+  static const String notification = '/notification';
+  static const detailBarang = '/detail-barang'; // ← tambahan
 }

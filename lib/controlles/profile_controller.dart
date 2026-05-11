@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../routes/app_routes.dart';
@@ -36,4 +37,12 @@ class ProfileController extends GetxController {
       ),
     );
   }
+=======
+import 'package:get/get.dart';
+
+class ProfileController extends GetxController {
+  var nama = "Jokovic".obs;
+  var email = "jokovic@gmail.com".obs;
+  var noHp = "08123456789".obs;
+>>>>>>> 4c62efb (membetulkan ui)
 }

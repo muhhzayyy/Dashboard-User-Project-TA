@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:get/get.dart';
 import 'package:project_ta3/constants/app_color.dart';
 import 'package:project_ta3/controlles/profile_controller.dart';
+=======
+// Pastikan path ini sesuai
+>>>>>>> 4c62efb (membetulkan ui)
 
 class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({super.key});

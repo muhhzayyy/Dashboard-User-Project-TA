@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_ta3/constants/app_color.dart';
@@ -79,5 +80,20 @@ class LoginController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+=======
+import 'package:get/get.dart';
+
+class LoginController extends GetxController {
+  var email = ''.obs;
+  var password = ''.obs;
+  var isLoading = false.obs;
+
+  void login() {
+    isLoading.value = true;
+
+    Future.delayed(const Duration(seconds: 2), () {
+      isLoading.value = false;
+    });
+>>>>>>> 4c62efb (membetulkan ui)
   }
 }

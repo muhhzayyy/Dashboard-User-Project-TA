@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_ta3/constants/app_color.dart';
@@ -56,4 +57,11 @@ class DetailKerusakanController extends GetxController {
       isLoading.value = false;
     }
   }
+=======
+import 'package:get/get.dart';
+
+class DetailKerusakanController extends GetxController {
+  var status = "Rusak".obs;
+  var deskripsi = "Layar mengalami kerusakan".obs;
+>>>>>>> 4c62efb (membetulkan ui)
 }
